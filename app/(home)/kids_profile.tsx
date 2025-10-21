@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button,Pressable, TextInput } from 'react-native';
 import KidsRegistration from '@/components/KidsRegistration';
+import { useRouter } from 'expo-router';
 
 
 const styles = StyleSheet.create({
@@ -57,10 +58,13 @@ const styles = StyleSheet.create({
 });
 
 const DueDate = () =>{
+  const router = useRouter();
   const [dueDate,setdueDate]=useState('');
-  const handleSubmit = () => {
-  return(<View><Text>sss</Text></View>)
-  }
+
+  const goToLandingTabs = () => {
+      router.replace('/landing_page');
+    
+  };
   return(
   <View>
     <Text>When is the due date?</Text>
@@ -69,7 +73,7 @@ const DueDate = () =>{
       placeholder='YYYY/MM/DD'
       onChangeText={setdueDate}>
     </TextInput>
-    <Button title='Continue' onPress={handleSubmit}/>
+    <Button title='Continue' onPress={goToLandingTabs}/>
   </View>
   )
 }
