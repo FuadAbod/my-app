@@ -1,6 +1,7 @@
 import { useEvent } from 'expo';
 import ExpoSettings, { ExpoSettingsView } from 'expo-settings';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Button, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   const onChangePayload = useEvent(ExpoSettings, 'onChange');
