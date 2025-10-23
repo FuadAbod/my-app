@@ -3,7 +3,7 @@ import UserRegistration from '@/components/UserRegistration';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <View className="flex justify-center items-center h-full w-full">
       <UserRegistration />
     </View>
   );

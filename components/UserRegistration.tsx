@@ -2,21 +2,6 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, TextInput, View, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: '#f2f2f2',
-  },
-  input: {
-    height: 40,
-    marginBottom: 10,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    paddingHorizontal: 10,
-  },
-});
 
 const UserRegistration = () => {
   const router = useRouter();
@@ -29,22 +14,20 @@ const UserRegistration = () => {
       Alert.alert('Success', 'Registration successful!');
       router.push('/profile_creation');
     } else {
-      Alert.alert('Error', 'Invalid email or password');
+      Alert.alert("Error", "Invalid email or password");
     }
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
+    <View className='flex justify-center p-5 bg-[#f2f2f2] min-h-screen'>
+      <TextInput className="h-10 mb-2.5 bg-white rounded-md px-2.5"
         value={email}
         placeholder="Email"
         onChangeText={setEmail}
         keyboardType="email-address"
         autoCapitalize="none"
       />
-      <TextInput
-        style={styles.input}
+      <TextInput className="h-10 mb-2.5 bg-white rounded-md px-2.5"
         value={password}
         placeholder="Password"
         onChangeText={setPassword}
