@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button,Pressable, TextInput } from 'react-native';
 import KidsRegistration from '@/components/KidsRegistration';
 import { useRouter } from 'expo-router';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
    input: {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   optionTextActive: {
-    color: '#fff',
+    color: '#cc33ff',
     fontWeight: '600',
   },
   section: { 
@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
   },
 });
 
+
+const CurrentlyPlaning = () => {
+  return (
+  <SafeAreaView>
+    <Text> Conent to support planning</Text>
+  </SafeAreaView>)
+};
 const DueDate = () =>{
   const router = useRouter();
   const [dueDate,setdueDate]=useState('');
@@ -89,8 +96,8 @@ const KidsProfile = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Select your status:</Text>
+    <SafeAreaView className='flex-1 justify-center items-center bg-white'>
+      <Text  className="text-base font-medium mb-2.5">Select your status:</Text>
       
       <View style={styles.optionsContainer}>
         {options.map((option) => (
@@ -126,7 +133,13 @@ const KidsProfile = () => {
           <DueDate />
         </View>)
       }
-    </View>
+
+      {status==='planning' && (
+        <View style={styles.section}>
+          <CurrentlyPlaning />
+        </View> 
+      )}
+    </SafeAreaView>
   );
 };
 

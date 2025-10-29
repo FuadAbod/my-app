@@ -12,6 +12,7 @@ type Kid ={
 const blankKid: Kid = { name: "", date_of_birth: "", gender: "" };
 
 const KidsRegistration = () => {
+    const router = useRouter();
     const [kids, setKids] = useState<Kid[]>([ { ...blankKid } ]);
 
     const handleChange = (index: number, key: keyof Kid, value: string) => {
@@ -35,6 +36,7 @@ const KidsRegistration = () => {
     }
 
     const onContinue=() =>{
+      router.push('/landing_page');
 
     }
 
@@ -76,11 +78,22 @@ const KidsRegistration = () => {
         </View>
       ))}
 
-      <Button title="Add Another Child" onPress={addKid} />
-      <Button title="Continue" onPress={onContinue} />
+      <View style={styles.buttonContainer}>
+        <Button title="Add Another Child" onPress={addKid} />
+        <Button title="Continue" onPress={onContinue} />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: 'row',       // 👈 places children (buttons) horizontally
+    justifyContent: 'space-between', // 👈 adds space between buttons
+    alignItems: 'center',       // 👈 vertically centers buttons (optional)
+    paddingHorizontal: 20,      // 👈 horizontal padding on the sides
+  },
+});
 
 
 export default KidsRegistration;

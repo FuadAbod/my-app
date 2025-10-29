@@ -4,27 +4,22 @@ import { Text, View, StyleSheet } from 'react-native'
 const BottomBar = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.item}>Chat</Text>
-      <Text style={styles.item}>Connect</Text>
-      <Text style={styles.item}>Profile</Text>
-      <Text style={styles.item}>Notifications</Text>
+      <Text>Chat</Text>
+      <Text>Connect</Text>
+      <Text>Profile</Text>
+      <Text>Notifications</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const styles=StyleSheet.create({
   container: {
-    height: 60,
+    height: 1400,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#a54f4f',
-    borderTopWidth: 1,
-    borderTopColor: '#aa2828',},
-  item: {
-    fontSize: 16,
-    color: '#fff',
-  },
-})
-
+    paddingHorizontal: 24
+  }
+  })
+  
 export default BottomBar
