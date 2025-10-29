@@ -1,27 +1,31 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import { Link } from 'expo-router'
 
 const FooterBar = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
-        <Text>Chat</Text>
-      </View>
-      <View style={styles.box}>
-        <Text>Connect</Text>
-      </View>
-      <View style={styles.box}>
-        <Text>Profile</Text>
-      </View>
+        <Link href="./chat" style={styles.iconBox}>
+        <Ionicons name="chatbubble-outline" size={28} color="#4EBF76" /> 
+        </Link>
 
-      <View style={styles.box}>
-        <Text>Notifications</Text>
-      </View>
+      <Link href="./connect" style={styles.iconBox}>
+        <Ionicons name="people-outline" size={28} color="#4EBF76" />
+      </Link>
+
+      <Link href="./profile" style={styles.iconBox}>
+        <Ionicons name="person-circle-outline" size={28} color="#4EBF76" />
+      </Link>
+
+      <Link href="./notification" style={styles.iconBox}>
+        <Ionicons name="notifications-outline" size={28} color="#4EBF76" />
+      </Link>
     </View>
   )
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     height: 1400,
     flexDirection: 'row',
@@ -29,20 +33,11 @@ const styles=StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 24
   },
-  box: {
-    width: 80,       
-    height: 70,
-    backgroundColor: '#E8F5E9',
-    borderRadius: 8, 
-    justifyContent: 'center',
-    alignItems: 'center',
+
+  iconBox: {
+    padding: 10,
+    borderRadius: 8,
   },
-  item: {
-    fontSize: 14,
-    color: '#4EBF76',
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-  })
-  
+})
+
 export default FooterBar
