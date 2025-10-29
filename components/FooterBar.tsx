@@ -1,32 +1,36 @@
-import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import React from 'react'
+import { Text, View, StyleSheet } from 'react-native'
 
-const HeaderBar = () => {
+const FooterBar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Text style={styles.item}>Squad</Text>
+        <Text>Chat</Text>
       </View>
       <View style={styles.box}>
-        <Text style={styles.item}>EventFinder</Text>
+        <Text>Connect</Text>
       </View>
       <View style={styles.box}>
-        <Text style={styles.item}>Support</Text>
+        <Text>Profile</Text>
+      </View>
+
+      <View style={styles.box}>
+        <Text>Notifications</Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
+const styles=StyleSheet.create({
   container: {
-    height: 60,
+    height: 1400,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: 24
   },
   box: {
-    width: 75,       
+    width: 80,       
     height: 70,
     backgroundColor: '#E8F5E9',
     borderRadius: 8, 
@@ -39,6 +43,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
   },
-});
-
-export default HeaderBar;
+  })
+  
+export default FooterBar

@@ -1,20 +1,16 @@
 import React from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderBar from './HeaderBar';
-import BottomBar from './BottomBar';
+import FooterBar from './FooterBar';
 
 const LandingPage = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+    <SafeAreaView style={styles.safe} edges={['top','bottom']}>
+      <View style={styles.content}>
         <HeaderBar />
+        <FooterBar />
       </View>
-
-      <View style={styles.footer}>
-        <BottomBar />
-      </View>
-      
     </SafeAreaView>
   );
 };
@@ -22,15 +18,12 @@ const LandingPage = () => {
 export default LandingPage;
 
 const styles = StyleSheet.create({
-  container: {
+  safe: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'transparent', // ensures the whole screen is white
   },
-  header:{
-
+  content: {
+    flex: 1,
+    justifyContent: 'space-between', // pushes footer to bottom
   },
-
-  footer: {
-
-  }
 });
