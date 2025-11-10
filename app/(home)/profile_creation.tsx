@@ -1,6 +1,5 @@
-import { Text } from '@react-navigation/elements'
 import React, { useState } from 'react'
-import { TextInput, View, Button } from 'react-native'
+import { TextInput, View, Button,Text } from 'react-native'
 import { useRouter } from 'expo-router';
 
 

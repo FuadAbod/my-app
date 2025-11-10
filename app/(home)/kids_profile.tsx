@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button,Pressable, TextInput } from 'react-native';
 import KidsRegistration from '@/components/KidsRegistration';
 import { useRouter } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const styles = StyleSheet.create({
+
    input: {
     height: 40,
     marginBottom: 10,
@@ -55,15 +56,27 @@ const styles = StyleSheet.create({
   section: { 
     marginTop: 20 
   },
+  test_container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+},
+text: {
+    fontSize: 16,
+    fontWeight: '500',
+    marginBottom: 10,
+  }
 });
 
 
 const CurrentlyPlaning = () => {
   return (
-  <SafeAreaView>
+  <View>
     <Text> Conent to support planning</Text>
-  </SafeAreaView>)
+  </View>)
 };
+
 const DueDate = () =>{
   const router = useRouter();
   const [dueDate,setdueDate]=useState('');
@@ -96,8 +109,8 @@ const KidsProfile = () => {
   ];
 
   return (
-    <SafeAreaView className='flex-1 justify-center items-center bg-white'>
-      <Text  className="text-base font-medium mb-2.5">Select your status:</Text>
+    <View style={styles.test_container}>
+      <Text style={styles.text}>Select your status:</Text>
       
       <View style={styles.optionsContainer}>
         {options.map((option) => (
@@ -139,7 +152,7 @@ const KidsProfile = () => {
           <CurrentlyPlaning />
         </View> 
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 
