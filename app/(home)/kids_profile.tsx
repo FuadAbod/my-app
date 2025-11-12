@@ -82,7 +82,7 @@ const DueDate = () =>{
   const [dueDate,setdueDate]=useState('');
 
   const goToLandingTabs = () => {
-      router.push('/(tabs)/index');
+      router.push('/(tabs)');
     
   };
   return(
