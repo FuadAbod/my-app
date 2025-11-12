@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const HeaderBar = () => {
   return (
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 24,
+    
   },
   box: {
     width: 75,       
@@ -32,6 +33,8 @@ const styles = StyleSheet.create({
     borderRadius: 8, 
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 130,
+
   },
   item: {
     fontSize: 14,

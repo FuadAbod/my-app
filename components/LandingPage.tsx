@@ -1,17 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderBar from './HeaderBar';
 import FooterBar from './FooterBar';
+import HeaderBar from './HeaderBar';
 
 const LandingPage = () => {
   return (
-    <SafeAreaView style={styles.safe} edges={['top','bottom']}>
+    <View style={styles.safe}>
       <View style={styles.content}>
         <HeaderBar />
         <FooterBar />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

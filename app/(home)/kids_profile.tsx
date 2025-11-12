@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button,Pressable, TextInput } from 'react-native';
 import KidsRegistration from '@/components/KidsRegistration';
 import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 
 const styles = StyleSheet.create({
@@ -82,7 +82,7 @@ const DueDate = () =>{
   const [dueDate,setdueDate]=useState('');
 
   const goToLandingTabs = () => {
-      router.replace('/landing_page');
+      router.push('/(tabs)/index');
     
   };
   return(

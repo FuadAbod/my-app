@@ -1,0 +1,4 @@
+1. Chat
+    To allow chatting option, utilise: Chat Messaging APi, FirebaseFirestone: https://www.cometchat.com/tutorials/how-to-build-a-chat-app-with-firebase
+2. Finding Friends
+    A geo location comparision(FirebaseFirestone)

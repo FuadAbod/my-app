@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, TextInput, View, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Alert, Button, TextInput, View } from 'react-native';
 
 
 const UserRegistration = () => {

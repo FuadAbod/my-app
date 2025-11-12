@@ -1,7 +1,7 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { Link } from 'expo-router'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 
 const FooterBar = () => {
   return (
@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24
+    paddingHorizontal: 14
   },
 
   iconBox: {
-    padding: 10,
+    padding: 20,
     borderRadius: 8,
   },
 })
