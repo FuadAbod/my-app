@@ -1,8 +1,7 @@
-import React from 'react'
-import { Text, StyleSheet, TextInput , View, Button,TouchableOpacity } from 'react-native'
-import { useRouter } from 'expo-router';
-import { useState } from 'react';
 import input_data_styles from '@/styles/input_data';
+import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 type Kid ={
     name: string;
@@ -36,7 +35,7 @@ const KidsRegistration = () => {
     }
 
     const onContinue=() =>{
-      router.push('/landing_page');
+      router.push('/(tabs)');
 
     }
 
