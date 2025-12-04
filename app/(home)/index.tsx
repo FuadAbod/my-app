@@ -1,9 +1,10 @@
-import { View, StyleSheet } from 'react-native';
 import UserRegistration from '@/components/UserRegistration';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View className="flex justify-center items-center h-full w-full">
+      <Text>Welcome, you are logged in ✅</Text>
       <UserRegistration />
     </View>
   );

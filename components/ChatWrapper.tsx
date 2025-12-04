@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Text } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Chat, OverlayProvider, useCreateChatClient } from "stream-chat-expo";
 import {
@@ -31,7 +31,7 @@ export const ChatWrapper: React.FC<ChatWrapperProps> = ({ children }) => {
 if (!chatClient) {
     return (
     <SafeAreaView>
-        <Text>Loading chat ...</Text>
+        <ActivityIndicator/>
     </SafeAreaView>
     );
 }

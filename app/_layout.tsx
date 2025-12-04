@@ -1,12 +1,13 @@
+import AuthProviders from '@/components/AuthProviders';
 import { Stack } from 'expo-router';
 import "../global.css";
 
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="(home)" options={{headerShown:false}}/>
-      <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
-    </Stack>
+    <AuthProviders>
+      <Stack screenOptions={{ headerShown: false }} />
+    </AuthProviders>
+     
   );
 }
