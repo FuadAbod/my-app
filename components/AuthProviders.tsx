@@ -24,6 +24,7 @@ export default function AuthProviders({children }:PropsWithChildren) {
         setSession(session)
     })
 }, [])
+    console.log(session)
     return (
     <AuthContext.Provider value= {{session, user: session?.user ?? null}}> {children}</AuthContext.Provider>
 )

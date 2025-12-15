@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
-import { TextInput, View, Button,Text } from 'react-native'
-import { useRouter } from 'expo-router';
+import { useAuth } from '@/components/AuthProviders';
+import { Redirect, useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Button, Text, TextInput, View } from 'react-native';
 
 
 const profile_creation = () => {
+    const {user} = useAuth()
+
+    if (!user) {
+        return <Redirect href='/(auth)/login' />
+    }
     const router = useRouter();
     const [profile,setProfile] = useState({
         name:'',
