@@ -1,10 +1,11 @@
-import ChannelListScreen from '@/components/ChannelListScreen'
-import React from 'react'
+import { router } from 'expo-router';
+import { default as React } from 'react';
+import { ChannelList } from 'stream-chat-expo';
 
-const ChatScreen = () => {
+const ChannelListScreen = () => {
   return (
-    <ChannelListScreen />
-  )
+  <ChannelList 
+  onSelect={(channel) => router.push(`/chat/channel/${channel.cid}`)} />);
 }
 
-export default ChatScreen
+export default ChannelListScreen

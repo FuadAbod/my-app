@@ -1,21 +1,19 @@
-import { ChatWrapper } from '@/components/ChatWrapper';
-import { AppProvider } from '@/contexts/AppContext';
-import { Stack } from 'expo-router';
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { useAuth } from '@/components/AuthProviders';
+import ChatProvider from '@/providers/ChatProvider';
+import { Redirect, Stack } from 'expo-router';
 export default function ChatLayout() {
+
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Redirect href="/(auth)/login" />;
+  }
     return (
-      <SafeAreaProvider>
-        <GestureHandlerRootView>
-        <ChatWrapper>
-          <AppProvider>
-            <Stack>
-              <Stack.Screen name="index"  options={{headerShown:false}}/>
-            </Stack>
-          </AppProvider>
-        </ChatWrapper>
-      </GestureHandlerRootView>
-      </SafeAreaProvider>
+      <ChatProvider>
+          <Stack />   
+      </ChatProvider>
+
+ 
     );
 }

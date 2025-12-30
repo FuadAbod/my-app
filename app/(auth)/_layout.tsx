@@ -3,10 +3,9 @@ import { Redirect, Stack } from "expo-router";
 
 export default function AuthLayout() {
     const {user} = useAuth();
-    console.log(user)
-    
+
     if (user) {
-        return <Redirect href='/(home)/profile_creation' />
+        return <Redirect href='/(profile_creation_page)/profile_creation' />
     }
 
     return <Stack />
