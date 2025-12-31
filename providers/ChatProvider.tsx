@@ -1,4 +1,5 @@
 import { useAuth } from '@/components/AuthProviders';
+import supabase from '@/lib/supabase';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { StreamChat } from "stream-chat";
@@ -7,11 +8,10 @@ import { Chat, OverlayProvider } from 'stream-chat-expo';
 const client = StreamChat.getInstance("22d7e62472y2")
 const ChatProvider = ({children}:PropsWithChildren) => {
 const {profile} = useAuth();
-// console.log("user",user)
+
 const [isReady,setIsReady] = useState(false) 
   
   useEffect(() => {
-    console.log("Usee effect",profile)
 
     if (!profile){
       return;
@@ -21,7 +21,9 @@ const [isReady,setIsReady] = useState(false)
         {
           id: profile.id,
           name: profile.full_name,
-          image: "https://i.imgur.com/fR9Jz14.png",
+          image: supabase.storage
+            .from('avatars')
+            .getPublicUrl(profile.avatar_url).data.publicUrl,
         },
         client.devToken(profile.id)
       );
@@ -36,7 +38,7 @@ const [isReady,setIsReady] = useState(false)
       client.disconnectUser();
       setIsReady(false)
     }
-  },[profile?.id])
+  },[profile?.id,profile?.avatar_url])
 
   if (!isReady) {
     return <ActivityIndicator />
