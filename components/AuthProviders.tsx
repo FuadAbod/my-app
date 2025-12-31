@@ -4,18 +4,20 @@ import React, { PropsWithChildren, createContext, useContext, useEffect, useStat
 
 type AuthContext = {
     session:Session | null;
-    user:User | null
+    user:User | null;
+    profile: any | null;
 }
 
 const AuthContext = createContext<AuthContext>({
     session: null,
-    user: null
+    user: null,
+    profile:null,
 }
 
 )
 export default function AuthProviders({children }:PropsWithChildren) {
     const [session, setSession] = useState<Session | null>(null)
-    const [profile,setProfile] = useState();
+    const [profile,setProfile] = useState<any | null>(null);
    
     
     useEffect(() => {
@@ -28,20 +30,19 @@ export default function AuthProviders({children }:PropsWithChildren) {
 }, [])
     useEffect(() => {
         if (!session?.user) {
+            setProfile(null);
             return;
         }
         const fetchProfile = async () => {
             let {data, error} = await supabase.from('profiles').select('*').eq('id',session.user.id).single()
+            console.log("data",data)
             setProfile(data);
-        }
-        
+        };
+        fetchProfile();
     },[session?.user])
-    console.log("hw")
-    console.log(session?.user.id)
-    console.log(profile)
-
+ 
     return (
-    <AuthContext.Provider value= {{session, user: session?.user ?? null}}> {children}</AuthContext.Provider>
+    <AuthContext.Provider value= {{session, user: session?.user ?? null,profile}}> {children}</AuthContext.Provider>
 )
 }
 

@@ -13,7 +13,6 @@ import {
 export default function ChannelScreen() {
   const [channel, setChannel] = useState<ChannelType | null>(null);
   const { cid } = useLocalSearchParams<{ cid: string }>();
-  console.log("cid",cid)
   const { client } = useChatContext();
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function ChannelScreen() {
 
     fetchChannel();
   }, [cid]);
-  console.log("channels",channel)
+  
   if (!channel) {
     return <ActivityIndicator />;
   }
