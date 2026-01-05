@@ -35,7 +35,7 @@ export default function AuthProviders({children }:PropsWithChildren) {
         }
         const fetchProfile = async () => {
             let {data, error} = await supabase.from('profiles').select('*').eq('id',session.user.id).single()
-            console.log("data",data)
+           
             setProfile(data);
         };
         fetchProfile();
