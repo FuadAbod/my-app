@@ -6,50 +6,52 @@ import { StreamChat } from "stream-chat";
 import { Chat, OverlayProvider } from 'stream-chat-expo';
 
 const client = StreamChat.getInstance("22d7e62472y2")
-const ChatProvider = ({children}:PropsWithChildren) => {
-const {profile} = useAuth();
 
-const [isReady,setIsReady] = useState(false) 
-  
+const ChatProvider = ({ children }: PropsWithChildren) => {
+  const { profile } = useAuth();
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
-
-    if (!profile){
+    if (!profile) {
       return;
     }
+
     const connect = async () => {
+      const image = profile.avatar_url
+        ? supabase.storage
+            .from('avatars')
+            .getPublicUrl(profile.avatar_url).data.publicUrl
+        : undefined;
+
       await client.connectUser(
         {
           id: profile.id,
           name: profile.full_name,
-          image: supabase.storage
-            .from('avatars')
-            .getPublicUrl(profile.avatar_url).data.publicUrl,
+          ...(image ? { image } : {}), // only include if it exists
         },
         client.devToken(profile.id)
       );
-    
-      setIsReady(true)
-      // const channel = client.channel('messaging','the_park',{name: 'The Park'})
-      // await channel.watch();
+
+      setIsReady(true);
     };
+
     connect();
 
     return () => {
       client.disconnectUser();
-      setIsReady(false)
-    }
-  },[profile?.id,profile?.avatar_url])
+      setIsReady(false);
+    };
+  }, [profile?.id, profile?.avatar_url]);
 
   if (!isReady) {
-    return <ActivityIndicator />
+    return <ActivityIndicator />;
   }
+
   return (
     <OverlayProvider>
-      <Chat client = {client}>
-        {children}</Chat>
-      </OverlayProvider>
-          
-  )
-}
+      <Chat client={client}>{children}</Chat>
+    </OverlayProvider>
+  );
+};
 
-export default ChatProvider
+export default ChatProvider;
