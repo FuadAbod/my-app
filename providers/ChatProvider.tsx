@@ -1,5 +1,6 @@
 import { useAuth } from '@/components/AuthProviders';
 import supabase from '@/lib/supabase';
+import { tokenProvider } from '@/utils/tokenProvider';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { StreamChat } from "stream-chat";
@@ -17,6 +18,7 @@ const ChatProvider = ({ children }: PropsWithChildren) => {
     }
 
     const connect = async () => {
+  
       const image = profile.avatar_url
         ? supabase.storage
             .from('avatars')
@@ -29,7 +31,7 @@ const ChatProvider = ({ children }: PropsWithChildren) => {
           name: profile.full_name,
           ...(image ? { image } : {}), // only include if it exists
         },
-        client.devToken(profile.id)
+        tokenProvider
       );
 
       setIsReady(true);
