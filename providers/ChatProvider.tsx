@@ -2,7 +2,7 @@ import { useAuth } from '@/components/AuthProviders';
 import supabase from '@/lib/supabase';
 import { tokenProvider } from '@/utils/tokenProvider';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Text, View, } from 'react-native';
 import { StreamChat } from "stream-chat";
 import { Chat, OverlayProvider } from 'stream-chat-expo';
 
@@ -46,8 +46,13 @@ const ChatProvider = ({ children }: PropsWithChildren) => {
   }, [profile?.id, profile?.avatar_url]);
 
   if (!isReady) {
-    return <ActivityIndicator />;
-  }
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <ActivityIndicator />
+      <Text style={{ marginTop: 8 }}>Loading chat…</Text>
+    </View>
+  );
+}
 
   return (
     <OverlayProvider>

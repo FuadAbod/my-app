@@ -15,8 +15,7 @@ const UserListItem = ({ user }: Props) => {
   const {client}= useChatContext();
   const {user:me} = useAuth()
 
-  console.log("ME",me)
-  console.log("current user",user)
+
   const onPress = async () => {
     //start a chat with him
     const channel = client.channel('messaging',{

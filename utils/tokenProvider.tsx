@@ -3,7 +3,7 @@ export const tokenProvider = async () => {
   // Create a single supabase client for interacting with your database
   
   const { data,error } = await supabase.functions.invoke('stream-token',{body: { name: 'Functions' }})
-  console.log(data)
+  
 
   return data.token;
 }
